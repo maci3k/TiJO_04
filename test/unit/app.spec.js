@@ -35,4 +35,44 @@ describe('app', function () {
             expect(app.divide(101, 0)).toEqual(false);
         });
     });
+
+    describe("GetDescendingNumbers function", function() {
+        it("should return false when numberTo is greater or equal than numberFrom", function() {
+            expect(app.getDescendingNumbers(4,5)).toEqual(false);
+            expect(app.getDescendingNumbers(4,4)).toEqual(false);
+        });
+        it("should return false when numberFrom is not numeric", function() {
+            expect(app.getDescendingNumbers("a",5)).toEqual(false);
+        });
+        it("should return false when numberTo is not numeric", function() {
+            expect(app.getDescendingNumbers(4,"5")).toEqual(false);
+        });
+        it("should return string when numberFrom is numeric, numberTo is numeric, numberFrom > numberTo", function() {
+            expect(app.getDescendingNumbers(10, 5)).toEqual('10 9 8 7 6 5');
+        });
+    });
+
+    describe("AreaOfTrapezoid function", function() {
+        it("should return false when a is less than 0", function() {
+            expect(app.areaOfTrapezoid(-1, 2, 3)).toEqual(false);
+        });
+        it("should return false when b is less than 0"), function() {
+            expect(app.areaOfTrapezoid(1, -2, 3)).toEqual(false);
+        };
+        it("should return false when h is less than 0"), function() {
+            expect(app.areaOfTrapezoid(1, 2, -3)).toEqual(false);
+        };
+        it("should return false when a is not numeric", function() {
+            expect(app.areaOfTrapezoid("1", 2, 3)).toEqual(false);
+        });
+        it("should return false when b is not numeric"), function() {
+            expect(app.areaOfTrapezoid(1, "2", 3)).toEqual(false);
+        };
+        it("should return false when h is not numeric"), function() {
+            expect(app.areaOfTrapezoid(1, 2, "3")).toEqual(false);
+        };
+        it("should return area of trapezoid", function() {
+            expect(app.areaOfTrapezoid(5, 5, 5)).toEqual(25);
+        })
+    });
 });
