@@ -75,4 +75,25 @@ describe('app', function () {
             expect(app.areaOfTrapezoid(5, 5, 5)).toEqual(25);
         })
     });
+
+    describe("MaxArray function", function() {
+        it("should return max number in array of numbers", function() {
+            expect(app.maxArray([1,2,3])).toEqual(3);
+            expect(app.maxArray([2,4,4,3])).toEqual(4);
+        });
+        it("should return false when array isn't numeric", function() {
+            expect(app.maxArray([1,"a",3])).toEqual(false);
+        });
+    });
+
+    describe("SquareOdd function", function() {
+        it("should pow() every odd number in array", function() {
+            expect(app.squareOdd([1, 3, 5])).toEqual([1, 9, 25]);
+            expect(app.squareOdd([2, 4, 6])).toEqual([2, 4, 6]);
+            expect(app.squareOdd(["10", 3, "50"])).toEqual(["10", 9, "50"]);
+        });
+        it("should return false when array element isn't number or string", function() {
+            expect(app.squareOdd([[1]])).toEqual(false);
+        });
+    });
 });
